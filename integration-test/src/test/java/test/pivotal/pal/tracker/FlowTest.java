@@ -16,6 +16,7 @@ import static test.pivotal.pal.tracker.support.MapBuilder.jsonMapBuilder;
 
 public class FlowTest {
 
+    //TEST
     private final HttpClient httpClient = new HttpClient();
     private final String workingDir = System.getProperty("user.dir");
 
