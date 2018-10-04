@@ -1,8 +1,10 @@
 package io.pivotal.pal.tracker.accounts;
 
+import com.sun.org.apache.bcel.internal.generic.NEW;
 import io.pivotal.pal.tracker.accounts.data.AccountDataGateway;
 import io.pivotal.pal.tracker.users.data.UserDataGateway;
 import io.pivotal.pal.tracker.users.data.UserRecord;
+import org.springframework.beans.factory.annotation.Required;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,7 +19,7 @@ public class RegistrationService {
         this.accountDataGateway = accountDataGateway;
     }
 
-    @Transactional
+    @Transactional()
     public UserRecord createUserWithAccount(String name) {
         UserRecord user = userDataGateway.create(name);
         accountDataGateway.create(user.id, String.format("%s's account", name));
